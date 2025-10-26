@@ -1,0 +1,54 @@
+.divider-section {
+  border-top-left-radius: 40px;
+  border-top-right-radius: 40px;
+  padding: 20px 10px;
+}
+
+.divider {
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  height: 60px;
+  gap: 16px;
+  position: relative;
+}
+
+.chip {
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 14px;
+  display: inline-block;
+  transform-origin: center;
+  transition: transform 0.3s ease;
+  animation: bounceAndFlip 4s ease-in-out infinite;
+}
+
+/* кольори */
+.chip.light {
+  background: #ccff00;
+  color: #000;
+}
+
+.chip.dark {
+  background: #000;
+  color: #ccff00;
+}
+
+/* Анімація стрибка і перевороту */
+@keyframes bounceAndFlip {
+  0%, 100% {
+    transform: translateY(0) rotate(var(--angle)) rotateX(0deg);
+  }
+  25% {
+    transform: translateY(-8px) rotate(var(--angle)) rotateX(180deg);
+  }
+  50% {
+    transform: translateY(0) rotate(var(--angle)) rotateX(360deg);
+  }
+  75% {
+    transform: translateY(-5px) rotate(var(--angle)) rotateX(540deg);
+  }
+}

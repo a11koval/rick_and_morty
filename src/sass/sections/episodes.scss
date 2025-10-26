@@ -1,0 +1,82 @@
+.episodes-section {
+    position: relative;
+    background: #0d171d;
+    color: #fff;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 150px 100px;
+    border-radius: 0 0 100px 100px;
+    overflow: hidden;
+    min-height: 700px;
+    font-family: Montserrat, sans-serif;
+}
+.episodes-content {
+    max-width: 600px;
+    z-index: 5;
+}
+.episodes-title {
+    font-family: Montserrat, sans-serif;
+    font-weight: 600;
+    font-size: 100px;
+    line-height: 100px;
+    text-align: left;
+    margin-bottom: 24px;
+}
+.episodes-text {
+    font-family: Montserrat, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    text-align: left;
+    max-width: 500px;
+    margin-bottom: 40px;
+    opacity: .9;
+}
+.episodes-button {
+    width: 131px;
+    height: 42px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 24px;
+    border: 1px solid rgba(250, 250, 250, .3);
+    border-radius: 1000px;
+    background: transparent;
+    opacity: 1;
+    font-family: Montserrat, sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    color: #fff;
+    cursor: pointer;
+    transition: .3s;
+}
+a {
+    text-decoration: none;
+}
+.episodes-visual {
+    position: relative;
+    flex: 1;
+}
+.episodes-shadow {
+    position: absolute;
+    width: 526px;
+    height: 476px;
+    top: -243px;
+    border-radius: 200000px;
+    background: linear-gradient(180deg, rgba(161, 215, 55, .8) 36.46%, rgba(52, 56, 127, 0) 100%);
+    opacity: 1;
+    z-index: 1;
+    filter: blur(60px);
+}
+.episodes-image {
+    position: absolute;
+    width: 504px;
+    height: 504px;
+    top: -266px;
+    left: 59px;
+    border-radius: 100px;
+    z-index: 2;
+    object-fit: cover;
+}

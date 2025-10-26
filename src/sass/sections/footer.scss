@@ -1,0 +1,119 @@
+.site-footer {
+    background-color: #0b0c10;
+    color: #c5c6c7;
+    padding: 40px 60px;
+    text-align: center;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* Логотип з Morty */
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.morty-img {
+    width: 50px;
+    height: auto;
+}
+
+.logo-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.logo-list li {
+    color: #000;
+    font-weight: bold;
+    display: inline-block;
+    padding: 6px 10px;
+    border-radius: 25px;
+    margin: 2px;
+    font-size: 16px;
+}
+
+.rick {
+    background: rgba(161, 215, 55, 1);
+    border-radius: 25px;
+        padding: 12px 24px;
+        width: 120px;
+        height: 46px;
+        font-weight: 600;
+        font-family: Montserrat;
+}
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+
+.logo-list .morty {
+    background: rgba(218, 248, 54, 1);
+   padding: 12px 24px;
+        border-radius: 25px;
+        width: 97px;
+        height: 42px;
+        font-weight: 600;
+        font-family: Montserrat;
+        position: relative;
+        margin-left: 60px;
+        rotate: 32deg;
+
+
+}
+
+/* Меню */
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 20px;
+}
+
+.footer-links a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.footer-links a:hover {
+    color: #66fcf1;
+}
+
+/* Соцмережі */
+.footer-socials {
+    display: flex;
+    gap: 15px;
+}
+
+.social {
+    color: #ffffff;
+    border: 1px solid #45a29e;
+    padding: 8px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.social:hover {
+    background-color: #45a29e;
+    color: #0b0c10;
+}
+
+/* Нижня частина */
+.footer-bottom {
+    border-top: 1px solid #1f2833;
+    margin-top: 25px;
+    padding-top: 10px;
+    font-size: 13px;
+    color: #666;
+}
