@@ -8,36 +8,104 @@
     <title></title>
     <script type="module" crossorigin src="/rick_and_morty/commonHelpers.js"></script>
     <link rel="modulepreload" crossorigin href="/rick_and_morty/assets/vendor-6837a909.js">
-    <link rel="stylesheet" href="/rick_and_morty/assets/index-26966599.css">
+    <link rel="stylesheet" href="/rick_and_morty/assets/index-7a9c9b5b.css">
   </head>
   <body>
-    <header>
-  <div class="container">
-    <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-      Launch demo modal
-    </button>
-
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            ...
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
-          </div>
-        </div>
-      </div>
+    <header class="main-header">
+  <div class="header-content">
+    <div class="logo">
+      <img src=".\img\header-logo.png" alt="Rick and Morty Logo">
     </div>
+    <!-- <div class="search-bar">
+      <input type="text" placeholder="Search">
+      <button type="submit"><i class="fas fa-search"></i></button>
+    </div> -->
+    <div class="search">
+    <!-- Кнопка виклику модалки -->
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      Search
+    </button>
+  </div>
   </div>
 </header>
+    <section class="episodes-section">
+    <div class="episodes-content">
+        <h1 class="episodes-title">Episodes</h1>
+        <p class="episodes-text">
+            With a comprehensive guide to every episode, you can relive your favorite moments and discover new ones.
+            From the bizarre and hilarious to the emotional and thought-provoking, our episode guide covers it all.
+        </p>
+        <a href="index.html" class="episodes-button">Back home</a>
+    </div>
+
+    <div class="episodes-visual">
+        <div class="episodes-shadow"></div>
+        <img src=".\img\episodes.png" alt="Rick" class="episodes-image">
+    </div>
+</section>
+    <section class="divider-section">
+    <div class="divider" id="divider"></div>
+  </section>
+    <section id="searchSection">
+    <div class="search-bar">
+      <input type="text" id="nameInput" placeholder="Enter name">
+      <button id="searchBtn">🔍</button>
+
+      <select id="seasonSelect">
+        <option value="all">All season</option>
+        <option value="S01">1 season</option>
+        <option value="S02">2 season</option>
+        <option value="S03">3 season</option>
+        <option value="S04">4 season</option>
+        <option value="S05">5 season</option>
+      </select>
+    </div>
+  </section>
+
+  
+  <section id="episodeSection">
+    <div id="episodeContainer" class="episodes">
+      <div class="placeholder">
+        <img src=".\img\portal.png" alt="Portal">
+        <p>Oops! Try looking for something else...</p>
+      </div>
+    </div>
+  </section>
+    <!-- 🔹 FOOTER -->
+<footer class="site-footer">
+  <div class="footer-container">
+
+    <!-- Логотип Rick and Morty -->
+    <div class="footer-logo">
+      <img src="morty.png" alt="Morty" class="morty-img">
+      <ul class="logo-list">
+        <li class="rick">Rick and</li>
+        <li class="morty">Morty</li>
+      </ul>
+    </div>
+
+    <!-- Меню -->
+    <ul class="footer-links">
+      <li><a href="#">Characters</a></li>
+      <li><a href="#">Episodes</a></li>
+    </ul>
+
+    <!-- Соцмережі -->
+    <div class="footer-socials">
+      <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+      <a href="#" class="social"><i class="fab fa-twitter"></i></a>
+      <a href="#" class="social"><i class="fab fa-instagram"></i></a>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>Privacy Policy | Public Offering Agreement</p>
+  </div>
+</footer>
+
+<!-- Іконки соцмереж (Font Awesome) -->
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
     
 
     
