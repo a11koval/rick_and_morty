@@ -1,0 +1,105 @@
+.main-header {
+    background-color: #0D171D;
+    /* Дуже темний фон для хедера */
+    padding: 15px 0;
+    /* Вертикальні відступи */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    /* Легка тінь для об'єму */
+}
+
+.header-content {
+    max-width: 1200px;
+    /* Максимальна ширина контенту хедера */
+    margin: 0 auto;
+    /* Центрування контенту */
+    display: flex;
+    /* Використовуємо flexbox для вирівнювання елементів */
+    justify-content: space-between;
+    /* Розміщуємо логотип зліва, пошук справа */
+    align-items: center;
+    /* Вирівнюємо елементи по центру вертикалі */
+    padding: 0 20px;
+    /* Горизонтальні відступи */
+}
+
+.logo img {
+    width: 193;
+    height: 73;
+
+    opacity: 1;
+
+    object-fit: contain;
+}
+.search button {
+    display: flex
+;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    border: 1px solid rgba(255, 255, 255, .2);
+    border-radius: 20px;
+    background: transparent;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background .3s ease;
+}
+
+/* Стилі для пошукової панелі */
+.search-bar {
+    display: flex;
+    align-items: center;
+    background-color: #333333;
+    width: 124;
+    height: 42;
+    opacity: 1;
+    gap: 8px;
+    border-radius: 1000px;
+    border-width: 1px;
+    padding-top: 12px;
+    padding-right: 24px;
+    padding-bottom: 12px;
+    padding-left: 24px;
+    border: 1px solid rgba(250, 250, 250, 0.3);
+
+    /* Темніший фон для поля пошуку */
+    border-radius: 20px;
+    /* Заокруглені кути */
+    padding: 5px 15px;
+    width: 250px;
+    /* Фіксована ширина пошукової панелі */
+}
+
+.search-bar input {
+    border: none;
+    /* Без рамки */
+    background: transparent;
+    /* Прозорий фон */
+    color: white;
+    /* Колір тексту */
+    padding: 5px;
+    outline: none;
+    /* Прибираємо обведення при фокусі */
+    flex-grow: 1;
+    /* Дозволяє полю вводу займати весь доступний простір */
+}
+
+.search-bar input::placeholder {
+    color: #BBBBBB;
+    /* Колір плейсхолдера */
+}
+
+.search-bar button {
+    background: transparent;
+    /* Прозорий фон кнопки */
+    border: none;
+    /* Без рамки */
+    color: #97CE4C;
+    /* Колір іконки пошуку (зелений, як на лого) */
+    cursor: pointer;
+    /* Зміна курсору при наведенні */
+    font-size: 1.1rem;
+    /* Розмір іконки */
+    padding: 5px;
+    outline: none;
+}
