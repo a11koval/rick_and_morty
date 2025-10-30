@@ -8,7 +8,7 @@
     <title></title>
     <script type="module" crossorigin src="/rick_and_morty/commonHelpers.js"></script>
     <link rel="modulepreload" crossorigin href="/rick_and_morty/assets/vendor-6837a909.js">
-    <link rel="stylesheet" href="/rick_and_morty/assets/index-7a9c9b5b.css">
+    <link rel="stylesheet" href="/rick_and_morty/assets/index-0685adb6.css">
   </head>
   <body>
     <header class="main-header">
@@ -16,7 +16,7 @@
     <div class="logo">
       <img src=".\img\header-logo.png" alt="Rick and Morty Logo">
     </div>
-    <!-- <div class="search-bar">
+    <!-- <div class="search-bar-header">
       <input type="text" placeholder="Search">
       <button type="submit"><i class="fas fa-search"></i></button>
     </div> -->
@@ -28,48 +28,57 @@
   </div>
   </div>
 </header>
-    <section class="episodes-section">
-    <div class="episodes-content">
-        <h1 class="episodes-title">Episodes</h1>
-        <p class="episodes-text">
+    <section class="episodes-hero-section">
+    <div class="episodes-hero-content">
+        <h1 class="episodes-hero-title">Episodes</h1>
+        <p class="episodes-text-hero">
             With a comprehensive guide to every episode, you can relive your favorite moments and discover new ones.
             From the bizarre and hilarious to the emotional and thought-provoking, our episode guide covers it all.
         </p>
-        <a href="index.html" class="episodes-button">Back home</a>
+        <a href="index.html" class="episodes-hero-button">Back home</a>
     </div>
 
-    <div class="episodes-visual">
-        <div class="episodes-shadow"></div>
-        <img src=".\img\episodes.png" alt="Rick" class="episodes-image">
+    <div class="episodes-hero-visual">
+        <div class="episodes-hero-shadow"></div>
+        <img src=".\img\episodes.png" alt="Rick" class="episodes-hero-image">
     </div>
 </section>
     <section class="divider-section">
     <div class="divider" id="divider"></div>
   </section>
-    <section id="searchSection">
+    <section class="search-section">
     <div class="search-bar">
-      <input type="text" id="nameInput" placeholder="Enter name">
-      <button id="searchBtn">🔍</button>
+      <div class="input-group">
+        <label for="searchName">Name</label>
+        <div class="input-wrapper">
+          <input type="text" id="searchName" placeholder="Enter name" />
+          <button id="searchBtn">🔍</button>
+        </div>
+      </div>
 
-      <select id="seasonSelect">
-        <option value="all">All season</option>
-        <option value="S01">1 season</option>
-        <option value="S02">2 season</option>
-        <option value="S03">3 season</option>
-        <option value="S04">4 season</option>
-        <option value="S05">5 season</option>
-      </select>
+      <div class="input-group">
+        <label for="selectSeason">Episode code</label>
+        <select id="selectSeason">
+          <option value="all">All season</option>
+          <option value="S01">1 season</option>
+          <option value="S02">2 season</option>
+          <option value="S03">3 season</option>
+          <option value="S04">4 season</option>
+          <option value="S05">5 season</option>
+        </select>
+      </div>
     </div>
   </section>
 
-  
-  <section id="episodeSection">
-    <div id="episodeContainer" class="episodes">
+  <!-- 🎬 Секція епізодів -->
+  <section class="episodes-section">
+    <div id="episodesContainer" class="episodes-list">
       <div class="placeholder">
-        <img src=".\img\portal.png" alt="Portal">
+        <img src="/rick_and_morty/assets/portal-d8a3d90b.png" alt="Portal" class="search-episod-foto" />
         <p>Oops! Try looking for something else...</p>
       </div>
     </div>
+    <button id="loadMoreBtn" class="load-more">Load more</button>
   </section>
     <!-- 🔹 FOOTER -->
 <footer class="site-footer">
@@ -78,7 +87,7 @@
     <!-- Логотип Rick and Morty -->
     <div class="footer-logo">
       <img src="morty.png" alt="Morty" class="morty-img">
-      <ul class="logo-list">
+      <ul class="footer-logo-list">
         <li class="rick">Rick and</li>
         <li class="morty">Morty</li>
       </ul>
