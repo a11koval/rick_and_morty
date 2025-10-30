@@ -15,8 +15,7 @@
 /* Логотип з Morty */
 .footer-logo {
     display: flex;
-    align-items: center;
-    gap: 10px;
+    align-items: baseline;
 }
 
 .morty-img {
@@ -41,8 +40,8 @@
 }
 
 .rick {
-    background: rgba(161, 215, 55, 1);
-    border-radius: 25px;
+   background-color: #a1d737;
+        border-radius: 25px;
         padding: 12px 24px;
         width: 120px;
         height: 46px;
@@ -56,9 +55,10 @@ ul {
 }
 
 
-.logo-list .morty {
+.morty {
     background: rgba(218, 248, 54, 1);
-   padding: 12px 24px;
+   background-color: #daf836;
+        padding: 12px 24px;
         border-radius: 25px;
         width: 97px;
         height: 42px;
@@ -67,6 +67,7 @@ ul {
         position: relative;
         margin-left: 60px;
         rotate: 32deg;
+        margin-top: 90px;
 
 
 }

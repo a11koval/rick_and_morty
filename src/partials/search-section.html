@@ -1,25 +1,34 @@
-<section id="searchSection">
+<section class="search-section">
     <div class="search-bar">
-      <input type="text" id="nameInput" placeholder="Enter name">
-      <button id="searchBtn">🔍</button>
+      <div class="input-group">
+        <label for="searchName">Name</label>
+        <div class="input-wrapper">
+          <input type="text" id="searchName" placeholder="Enter name" />
+          <button id="searchBtn">🔍</button>
+        </div>
+      </div>
 
-      <select id="seasonSelect">
-        <option value="all">All season</option>
-        <option value="S01">1 season</option>
-        <option value="S02">2 season</option>
-        <option value="S03">3 season</option>
-        <option value="S04">4 season</option>
-        <option value="S05">5 season</option>
-      </select>
+      <div class="input-group">
+        <label for="selectSeason">Episode code</label>
+        <select id="selectSeason">
+          <option value="all">All season</option>
+          <option value="S01">1 season</option>
+          <option value="S02">2 season</option>
+          <option value="S03">3 season</option>
+          <option value="S04">4 season</option>
+          <option value="S05">5 season</option>
+        </select>
+      </div>
     </div>
   </section>
 
-  
-  <section id="episodeSection">
-    <div id="episodeContainer" class="episodes">
+  <!-- 🎬 Секція епізодів -->
+  <section class="episodes-section">
+    <div id="episodesContainer" class="episodes-list">
       <div class="placeholder">
-        <img src=".\img\portal.png" alt="Portal">
+        <img src="img/portal.png" alt="Portal" class="search-episod-foto" />
         <p>Oops! Try looking for something else...</p>
       </div>
     </div>
+    <button id="loadMoreBtn" class="load-more">Load more</button>
   </section>
