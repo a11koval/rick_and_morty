@@ -1,74 +1,110 @@
 const API_URL = "https://rickandmortyapi.com/api/episode";
-const episodeContainer = document.getElementById("episodeContainer");
-const seasonSelect = document.getElementById("seasonSelect");
+const episodesContainer = document.getElementById("episodesContainer");
+const loadMoreBtn = document.getElementById("loadMoreBtn");
+const selectSeason = document.getElementById("selectSeason");
+const searchInput = document.getElementById("searchName");
 const searchBtn = document.getElementById("searchBtn");
-const nameInput = document.getElementById("nameInput");
 
-// Показуємо заставку при старті
-showPlaceholder();
+let allEpisodes = [];
+let filteredEpisodes = [];
+let visibleCount = 20;
 
-// При зміні сезону або натисканні пошуку — оновлюємо список
-seasonSelect.addEventListener("change", loadEpisodes);
-searchBtn.addEventListener("click", loadEpisodes);
 
-async function loadEpisodes() {
-  const season = seasonSelect.value;
-  const name = nameInput.value.trim().toLowerCase();
+async function fetchEpisodes() {
+  try {
+    let nextPage = API_URL;
 
-  if (season === "all" && !name) {
-    showPlaceholder();
+    while (nextPage) {
+      const res = await fetch(nextPage);
+      const data = await res.json();
+      allEpisodes.push(...data.results);
+      nextPage = data.info.next;
+    }
+
+   
+    allEpisodes = allEpisodes.filter(ep => {
+      const seasonCode = ep.episode.slice(0, 3); 
+      return ["S01", "S02", "S03", "S04", "S05"].includes(seasonCode);
+    });
+
+    filteredEpisodes = allEpisodes;
+    renderEpisodes();
+  } catch (error) {
+    console.error("Error fetching episodes:", error);
+    showPlaceholder(true);
+  }
+}
+
+
+function renderEpisodes() {
+  episodesContainer.innerHTML = "";
+
+  const visibleEpisodes = filteredEpisodes.slice(0, visibleCount);
+
+  if (visibleEpisodes.length === 0) {
+    showPlaceholder(true);
     return;
   }
 
-  episodeContainer.innerHTML = "<p>Loading...</p>";
+  showPlaceholder(false);
 
-  let url = API_URL;
-  if (name) {
-    url += `?name=${name}`;
-  }
-
-  try {
-    const res = await fetch(url);
-    const data = await res.json();
-
-    if (!data.results) {
-      showPlaceholder();
-      return;
-    }
-
-    // Фільтруємо епізоди по сезону
-    const filtered = data.results.filter(ep => {
-      if (season === "all") return true;
-      return ep.episode.startsWith(season);
-    });
-
-    if (filtered.length === 0) {
-      showPlaceholder();
-      return;
-    }
-
-    // Відображаємо епізоди
-    episodeContainer.innerHTML = filtered.map(ep => `
-      <div class="card">
+  visibleEpisodes.forEach((ep) => {
+    const card = document.createElement("div");
+    card.classList.add("episode-card");
+    card.innerHTML = `
+      <img src="img/season-corect.png" alt="${ep.name}" onerror="this.src='img/portal.png'">
+      <div class="episode-info">
         <h3>${ep.name}</h3>
-        <p><b>Season:</b> ${ep.episode.slice(1, 3)}</p>
-        <p><b>Episode code:</b> ${ep.episode}</p>
-        <p><b>Air date:</b> ${ep.air_date}</p>
+        <p>Season: ${ep.episode.slice(1, 3)}</p>
+        <p>Air date: ${ep.air_date}</p>
       </div>
-    `).join("");
-  } catch (err) {
-    console.error(err);
-    showPlaceholder();
+    `;
+    episodesContainer.appendChild(card);
+  });
+
+  loadMoreBtn.style.display = filteredEpisodes.length > visibleCount ? "block" : "none";
+}
+
+
+function applyFilters() {
+  const season = selectSeason.value;
+  const searchValue = searchInput.value.trim().toLowerCase();
+
+  filteredEpisodes = allEpisodes.filter((ep) => {
+    const matchSeason = season === "all" || ep.episode.startsWith(season);
+    const matchName = ep.name.toLowerCase().includes(searchValue);
+    return matchSeason && matchName;
+  });
+
+  visibleCount = 20;
+  renderEpisodes();
+}
+
+
+function showPlaceholder(show) {
+  if (show) {
+    episodesContainer.innerHTML = `
+      <div class="placeholder">
+        <img src="img/portal.png" alt="Portal" />
+        <p>Oops! Try looking for something else...</p>
+      </div>
+    `;
+    loadMoreBtn.style.display = "none";
   }
 }
 
-function showPlaceholder() {
-  episodeContainer.innerHTML = `
-    <div class="placeholder">
-      <img src="https://upload.wikimedia.org/wikipedia/en/c/c8/Rick_and_Morty_logo.png" alt="Portal">
-      <p>Oops! Try looking for something else...</p>
-    </div>
-  `;
-}
-// Завантажуємо всі епізоди при старті
-loadEpisodes();
+
+loadMoreBtn.addEventListener("click", () => {
+  visibleCount += 20;
+  renderEpisodes();
+});
+
+
+selectSeason.addEventListener("change", applyFilters);
+searchBtn.addEventListener("click", applyFilters);
+searchInput.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") applyFilters();
+});
+
+
+fetchEpisodes();
