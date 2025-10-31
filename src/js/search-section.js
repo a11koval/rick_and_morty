@@ -52,7 +52,7 @@ function renderEpisodes() {
     const card = document.createElement("div");
     card.classList.add("episode-card");
     card.innerHTML = `
-      <img src="img/season-corect.png" alt="${ep.name}" onerror="this.src='img/portal.png'">
+      <img src="images/season-corect.png" alt="${ep.name}" onerror="this.src='img/portal.png'">
       <div class="episode-info">
         <h3>${ep.name}</h3>
         <p>Season: ${ep.episode.slice(1, 3)}</p>
@@ -85,7 +85,7 @@ function showPlaceholder(show) {
   if (show) {
     episodesContainer.innerHTML = `
       <div class="placeholder">
-        <img src="img/portal.png" alt="Portal" />
+        <img src="images/portal.png" alt="Portal" />
         <p>Oops! Try looking for something else...</p>
       </div>
     `;
