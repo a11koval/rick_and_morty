@@ -1,82 +1,195 @@
 .episodes-hero-section {
-    position: relative;
-    background: #0d171d;
-    color: #fff;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    padding: 150px 100px;
-    border-radius: 0 0 100px 100px;
-    overflow: hidden;
-    min-height: 700px;
-    font-family: Montserrat, sans-serif;
+  position: relative;
+  background: #0d171d;
+  color: #fff;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 150px 100px;
+  border-radius: 0 0 100px 100px;
+  overflow: hidden;
+  min-height: 700px;
+  font-family: Montserrat, sans-serif;
+  gap: 50px;
 }
+
 .episodes-hero-content {
-    max-width: 600px;
-    z-index: 5;
+  max-width: 600px;
+  z-index: 5;
 }
+
 .episodes-hero-title {
-    font-family: Montserrat, sans-serif;
-    font-weight: 600;
-    font-size: 100px;
-    line-height: 100px;
-    text-align: left;
-    margin-bottom: 24px;
+  font-family: Montserrat, sans-serif;
+  font-weight: 600;
+  font-size: 100px;
+  line-height: 100px;
+  text-align: left;
+  margin-bottom: 24px;
 }
+
 .episodes-hero-text {
-    font-family: Montserrat, sans-serif;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 20px;
-    text-align: left;
-    max-width: 500px;
-    margin-bottom: 40px;
-    opacity: .9;
+  font-family: Montserrat, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  text-align: left;
+  max-width: 500px;
+  margin-bottom: 40px;
+  opacity: 0.9;
 }
+
 .episodes-hero-button {
-    width: 131px;
-    height: 42px;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    padding: 12px 24px;
-    border: 1px solid rgba(250, 250, 250, .3);
-    border-radius: 1000px;
-    background: transparent;
-    opacity: 1;
-    font-family: Montserrat, sans-serif;
-    font-weight: 600;
-    font-size: 14px;
-    color: #fff;
-    cursor: pointer;
-    transition: .3s;
+  width: 131px;
+  height: 42px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 24px;
+  border: 1px solid rgba(250, 250, 250, 0.3);
+  border-radius: 1000px;
+  background: transparent;
+  opacity: 1;
+  font-family: Montserrat, sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.3s;
 }
+
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
+
 .episodes-hero-visual {
-    position: relative;
-    flex: 1;
+  position: relative;
+  flex: 1;
 }
+
 .episodes-hero-shadow {
-    position: absolute;
-    width: 526px;
-    height: 476px;
-    top: -243px;
-    border-radius: 200000px;
-    background: linear-gradient(180deg, rgba(161, 215, 55, .8) 36.46%, rgba(52, 56, 127, 0) 100%);
-    opacity: 1;
-    z-index: 1;
-    filter: blur(60px);
+  position: absolute;
+  width: 526px;
+  height: 476px;
+  top: -243px;
+  border-radius: 200000px;
+  background: linear-gradient(
+    180deg,
+    rgba(161, 215, 55, 0.8) 36.46%,
+    rgba(52, 56, 127, 0) 100%
+  );
+  opacity: 1;
+  z-index: 1;
+  filter: blur(60px);
 }
+
 .episodes-hero-image {
-    position: absolute;
-    width: 504px;
-    height: 504px;
-    top: -266px;
-    left: 59px;
-    border-radius: 100px;
-    z-index: 2;
-    object-fit: cover;
+  position: absolute;
+  width: 504px;
+  height: 504px;
+  top: -266px;
+  left: 59px;
+  border-radius: 100px;
+  z-index: 2;
+  object-fit: cover;
+}
+
+/* ========================= */
+/* 📱 Адаптивність */
+/* ========================= */
+
+/* Планшети (до 992px) */
+@media (max-width: 992px) {
+  .episodes-hero-section {
+    flex-direction: column;
+    align-items: center;
+    padding: 100px 40px;
+    text-align: center;
+    border-radius: 0 0 60px 60px;
+    min-height: auto;
+  }
+
+  .episodes-hero-content {
+    max-width: 500px;
+    text-align: center;
+  }
+
+  .episodes-hero-title {
+    font-size: 70px;
+    line-height: 75px;
+    text-align: center;
+  }
+
+  .episodes-hero-text {
+    font-size: 15px;
+    line-height: 22px;
+    max-width: 450px;
+    margin: 0 auto 30px;
+    text-align: center;
+  }
+
+  .episodes-hero-visual {
+    display: flex;
+    justify-content: center;
+    margin-top: 60px;
+  }
+
+  .episodes-hero-image {
+    position: static;
+    width: 350px;
+    height: 350px;
+    border-radius: 80px;
+  }
+
+  .episodes-hero-shadow {
+    display: none; /* тінь можна сховати на планшетах */
+  }
+}
+
+/* Телефони (до 600px) */
+@media (max-width: 600px) {
+  .episodes-hero-section {
+    padding: 80px 20px;
+    border-radius: 0 0 40px 40px;
+  }
+
+  .episodes-hero-title {
+    font-size: 48px;
+    line-height: 52px;
+  }
+
+  .episodes-hero-text {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .episodes-hero-button {
+    width: auto;
+    padding: 10px 20px;
+    font-size: 13px;
+  }
+
+  .episodes-hero-image {
+    width: 280px;
+    height: 280px;
+    border-radius: 60px;
+  }
+}
+
+/* Дуже маленькі екрани (до 400px) */
+@media (max-width: 400px) {
+  .episodes-hero-title {
+    font-size: 38px;
+    line-height: 42px;
+  }
+
+  .episodes-hero-text {
+    font-size: 13px;
+  }
+
+  .episodes-hero-image {
+    width: 230px;
+    height: 230px;
+    border-radius: 40px;
+  }
 }

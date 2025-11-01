@@ -1,63 +1,75 @@
+/* ===== Footer ===== */
 .site-footer {
-    background-color: #0b0c10;
-    color: #c5c6c7;
-    padding: 40px 60px;
-    text-align: center;
-}
+  background-color: #0d1117;
+  color: #ccc;
+  padding: 50px 0 20px;
+  font-family: "Inter", sans-serif;
 
-.footer-container {
+  .footer-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 40px;
     flex-wrap: wrap;
-}
+    gap: 30px;
+  }
 
-/* Логотип з Morty */
-.footer-logo {
+  .footer-left {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+
+  .footer-logo {
     display: flex;
-    align-items: baseline;
-}
+    align-items: center;
+    position: relative;
 
-.morty-img {
-    width: 50px;
-    height: auto;
-}
+    .rick-img {
+      width: 99px;
+      height: 84px;
+      height: auto;
+      margin-right: 5px;
+    }
 
-.logo-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
+    .logo-text {
+      position: relative;
+      display: inline-block;
 
-.logo-list li {
-    color: #000;
-    font-weight: bold;
-    display: inline-block;
-    padding: 6px 10px;
-    border-radius: 25px;
-    margin: 2px;
-    font-size: 16px;
-}
+      .pill {
+        display: inline-block;
+        font-family: "Inter", sans-serif;
+        font-weight: 600;
+        font-size: 18px;
+        color: #0d1117;
+        padding: 8px 18px;
+        border-radius: 40px;
+        position: absolute;
+        left: 0;
+        top: 0;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        transform-origin: center;
+      }
 
-.rick {
-   background-color: #a1d737;
+      .pill-rick {
+        top: 115px;
+        background-color: #a1d737;
         border-radius: 25px;
         padding: 12px 24px;
         width: 120px;
         height: 46px;
         font-weight: 600;
         font-family: Montserrat;
-}
-ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
+        
+        z-index: 2;
+      }
 
-
-.morty {
-    background: rgba(218, 248, 54, 1);
-   background-color: #daf836;
+      .pill-morty {
+        z-index: 3;
+        transform: rotate(10deg);
+       background-color: #daf836;
         padding: 12px 24px;
         border-radius: 25px;
         width: 97px;
@@ -68,53 +80,74 @@ ul {
         margin-left: 60px;
         rotate: 32deg;
         margin-top: 90px;
-
-
+      }
+    }
+  }
 }
 
-/* Меню */
-.footer-links {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    gap: 20px;
-}
+  .footer-center {
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      text-align: center;
 
-.footer-links a {
-    color: #ffffff;
-    text-decoration: none;
-    font-size: 16px;
-}
+      li {
+        margin: 5px 0;
 
-.footer-links a:hover {
-    color: #66fcf1;
-}
+        a {
+          color: #ccc;
+          text-decoration: none;
+          font-size: 14px;
+          transition: color 0.2s ease;
 
-/* Соцмережі */
-.footer-socials {
+          &:hover {
+            color: #aaff00;
+          }
+        }
+      }
+    }
+  }
+
+  .footer-right {
     display: flex;
     gap: 15px;
-}
 
-.social {
-    color: #ffffff;
-    border: 1px solid #45a29e;
-    padding: 8px;
-    border-radius: 50%;
-    transition: all 0.3s ease;
-}
+    a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 36px;
+      height: 36px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      color: #ccc;
+      transition: all 0.2s ease;
 
-.social:hover {
-    background-color: #45a29e;
-    color: #0b0c10;
-}
+      &:hover {
+        color: #aaff00;
+        border-color: #aaff00;
+        transform: translateY(-3px);
+      }
 
-/* Нижня частина */
-.footer-bottom {
-    border-top: 1px solid #1f2833;
-    margin-top: 25px;
-    padding-top: 10px;
-    font-size: 13px;
+      i {
+        font-size: 16px;
+      }
+    }
+  }
+
+  .footer-bottom {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 12px;
     color: #666;
+  }
+}
+
+/* ===== Адаптивність ===== */
+@media (max-width: 768px) {
+  .site-footer .footer-container {
+    flex-direction: column;
+    text-align: center;
+  }
 }

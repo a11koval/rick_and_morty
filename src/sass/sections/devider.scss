@@ -1,32 +1,39 @@
 .divider-section {
   border-top-left-radius: 40px;
   border-top-right-radius: 40px;
-  padding: 20px 10px;
+  padding: 25px 10px; /* трохи більше відступів */
+  overflow: hidden;
 }
 
 .divider {
-  overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-wrap: nowrap;
-  height: 60px;
-  gap: 16px;
+  flex-wrap: nowrap; /* усі чіпи в один ряд */
+  gap: 18px;
   position: relative;
+  overflow-x: auto;
+  height: 80px; /* 🔹 трохи більша висота */
+  scrollbar-width: none;
+}
+
+.divider::-webkit-scrollbar {
+  display: none; /* прибирає скролбар */
 }
 
 .chip {
-  padding: 6px 14px;
+  padding: 8px 18px;
   border-radius: 999px;
   font-weight: 600;
-  font-size: 14px;
+  font-size: 15px;
   display: inline-block;
   transform-origin: center;
   transition: transform 0.3s ease;
-  animation: bounceAndFlip 4s ease-in-out infinite;
+  white-space: nowrap;
+  border: 1px solid rgba(204, 255, 0, 0.6); /* легкий контур замість тіні */
 }
 
-/* кольори */
+/* 🎨 кольори */
 .chip.light {
   background: #ccff00;
   color: #000;
@@ -37,7 +44,14 @@
   color: #ccff00;
 }
 
-/* Анімація стрибка і перевороту */
+/* 💫 Анімація лише для деяких */
+.chip:nth-child(3n),
+.chip:nth-child(5n),
+.chip:nth-child(7n) {
+  animation: bounceAndFlip 4s ease-in-out infinite;
+  animation-delay: calc(var(--i, 0) * 0.2s);
+}
+
 @keyframes bounceAndFlip {
   0%, 100% {
     transform: translateY(0) rotate(var(--angle)) rotateX(0deg);
@@ -50,5 +64,33 @@
   }
   75% {
     transform: translateY(-5px) rotate(var(--angle)) rotateX(540deg);
+  }
+}
+
+/* 📱 Адаптивність */
+@media (max-width: 768px) {
+  .divider {
+    gap: 14px;
+    height: 70px;
+  }
+
+  .chip {
+    font-size: 13px;
+    padding: 6px 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .divider-section {
+    padding: 20px 5px;
+  }
+
+  .divider {
+    height: 65px;
+  }
+
+  .chip {
+    font-size: 12px;
+    padding: 5px 12px;
   }
 }

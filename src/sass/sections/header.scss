@@ -1,105 +1,142 @@
+/* 🔹 Основний хедер */
 .main-header {
-    background-color: #0D171D;
-    
-    padding: 15px 0;
-    
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-   
+  background-color: #0D171D;
+  padding: 15px 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
+/* 🔹 Контейнер усередині */
 .header-content {
-    max-width: 1200px;
-   
-    margin: 0 auto;
-    
-    display: flex;
-   
-    justify-content: space-between;
-    
-    align-items: center;
-    
-    padding: 0 20px;
-    
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  flex-wrap: wrap; /* ✅ дозволяє перенос елементів на новий ряд */
+  gap: 15px;
 }
 
+/* 🔹 Лого */
 .logo img {
-    width: 193;
-    height: 73;
-
-    opacity: 1;
-
-    object-fit: contain;
-}
-.search button {
-    display: flex
-;
-    align-items: center;
-    gap: 6px;
-    padding: 6px 14px;
-    border: 1px solid rgba(255, 255, 255, .2);
-    border-radius: 20px;
-    background: transparent;
-    color: #fff;
-    font-size: 14px;
-    cursor: pointer;
-    transition: background .3s ease;
+  width: 193px;
+  height: 73px;
+  opacity: 1;
+  object-fit: contain;
 }
 
-
+/* 🔹 Пошук */
 .search-bar-header {
-    display: flex;
-    align-items: center;
-    background-color: #333333;
-    width: 124;
-    height: 42;
-    opacity: 1;
-    gap: 8px;
-    border-radius: 1000px;
-    border-width: 1px;
-    padding-top: 12px;
-    padding-right: 24px;
-    padding-bottom: 12px;
-    padding-left: 24px;
-    border: 1px solid rgba(250, 250, 250, 0.3);
-
-    
-    border-radius: 20px;
-  
-    padding: 5px 15px;
-    width: 250px;
-    
+  display: flex;
+  align-items: center;
+  background-color: #333333;
+  opacity: 1;
+  gap: 8px;
+  border: 1px solid rgba(250, 250, 250, 0.3);
+  border-radius: 20px;
+  padding: 5px 15px;
+  width: 250px;
+  transition: width 0.3s ease;
 }
 
 .search-bar input {
-    border: none;
-    /* Без рамки */
-    background: transparent;
-    /* Прозорий фон */
-    color: white;
-    /* Колір тексту */
-    padding: 5px;
-    outline: none;
-    /* Прибираємо обведення при фокусі */
-    flex-grow: 1;
-    /* Дозволяє полю вводу займати весь доступний простір */
+  border: none;
+  background: transparent;
+  color: white;
+  padding: 5px;
+  outline: none;
+  flex-grow: 1;
 }
 
 .search-bar input::placeholder {
-    color: #BBBBBB;
-    /* Колір плейсхолдера */
+  color: #BBBBBB;
 }
 
 .search-bar button {
-    background: transparent;
-    /* Прозорий фон кнопки */
-    border: none;
-    /* Без рамки */
-    color: #97CE4C;
-    /* Колір іконки пошуку (зелений, як на лого) */
-    cursor: pointer;
-    /* Зміна курсору при наведенні */
-    font-size: 1.1rem;
-    /* Розмір іконки */
-    padding: 5px;
-    outline: none;
+  background: transparent;
+  border: none;
+  color: #97CE4C;
+  cursor: pointer;
+  font-size: 1.1rem;
+  padding: 5px;
+  outline: none;
+}
+
+/* 🔹 Кнопка пошуку */
+.search button {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border: 1px solid rgba(255, 255, 255, .2);
+  border-radius: 20px;
+  background: transparent;
+  color: #fff;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background .3s ease;
+}
+
+/* ========================= */
+/* 📱 Адаптивність */
+/* ========================= */
+
+/* Планшети (до 992px) */
+@media (max-width: 992px) {
+  .header-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .logo img {
+    width: 160px;
+    height: auto;
+  }
+
+  .search-bar-header {
+    width: 80%;
+  }
+}
+
+/* Телефони (до 600px) */
+@media (max-width: 600px) {
+  .header-content {
+    padding: 0 10px;
+    gap: 10px;
+  }
+
+  .logo img {
+    width: 140px;
+  }
+
+  .search-bar-header {
+    width: 100%;
+    padding: 8px 12px;
+  }
+
+  .search-bar input {
+    font-size: 0.9rem;
+  }
+
+  .search button {
+    font-size: 12px;
+    padding: 5px 10px;
+  }
+}
+
+/* Дуже маленькі екрани (до 400px) */
+@media (max-width: 400px) {
+  .logo img {
+    width: 120px;
+  }
+
+  .search-bar-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 5px;
+  }
+
+  .search-bar button {
+    align-self: flex-end;
+  }
 }
