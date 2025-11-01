@@ -206,3 +206,289 @@
     }
   }
 }
+/* ===== Модальне вікно ===== */
+.episode-modal {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  animation: fadeIn 0.3s ease;
+
+  .modal-season-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.75);
+    
+  }
+
+  .modal-window {
+    position: relative;
+    background: #0d1117;
+    border: 2px solid #aaff00;
+    border-radius: 12px;
+    padding: 30px;
+    width: 500px;
+    max-width: 90%;
+    color: #fff;
+    box-shadow: 0 0 20px rgba(170, 255, 0, 0.3);
+    z-index: 2;
+    animation: popIn 0.25s ease;
+
+    h2 {
+      color: #aaff00;
+      margin-bottom: 10px;
+    }
+
+    h3 {
+      color: #aaff00;
+      margin-top: 20px;
+    }
+
+    .modal-details {
+      font-size: 14px;
+      color: #ccc;
+      margin-bottom: 15px;
+
+      p {
+        margin: 4px 0;
+      }
+    }
+
+    .modal-characters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+
+      .char {
+        text-align: center;
+        font-size: 13px;
+        color: #ccc;
+
+        img {
+          width: 60px;
+          height: 60px;
+          border-radius: 10px;
+          margin-bottom: 5px;
+        }
+      }
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 24px;
+      color: #aaff00;
+      cursor: pointer;
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: #ccff33;
+      }
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes popIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+/* ========================= */
+/* 📱 Адаптивність */
+/* ========================= */
+
+/* Планшети (до 992px) */
+@media (max-width: 992px) {
+  .search-section {
+    padding: 20px 0;
+  }
+
+  .search-section .search-bar {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .search-section .input-group .input-wrapper {
+    width: 250px;
+  }
+
+  .episodes-section {
+    padding: 40px 20px;
+  }
+
+  .episodes-section .episodes-list {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+    padding: 0 20px;
+  }
+
+  .episodes-section .episode-card {
+    width: 100%;
+    max-width: 260px;
+    height: 200px;
+  }
+
+  .episodes-section .load-more {
+    margin: 20px auto 0;
+    display: block;
+  }
+
+  .episode-modal .modal-window {
+    width: 90%;
+    padding: 20px;
+  }
+}
+
+/* Телефони (до 600px) */
+@media (max-width: 600px) {
+  .search-section {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .search-section .search-bar {
+    width: 100%;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .search-section .input-group .input-wrapper {
+    width: 100%;
+  }
+
+  .search-section input {
+    font-size: 13px;
+    padding: 8px 35px 8px 12px;
+  }
+
+  .episodes-section {
+    padding: 30px 10px;
+  }
+
+  .episodes-section .episodes-list {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 15px;
+    padding: 0 10px;
+  }
+
+  .episodes-section .episode-card {
+    width: 100%;
+    max-width: 220px;
+    height: 180px;
+  }
+
+  .episodes-section .episode-info h3 {
+    font-size: 14px;
+  }
+
+  .episodes-section .episode-info p {
+    font-size: 12px;
+  }
+
+  .episodes-section .load-more {
+    width: 100%;
+    margin: 25px auto 0;
+  }
+
+  .episode-modal .modal-window {
+    width: 95%;
+    padding: 15px;
+  }
+
+  .episode-modal .modal-characters .char img {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+/* Дуже маленькі екрани (до 400px) */
+@media (max-width: 400px) {
+  .episodes-section .episodes-list {
+    grid-template-columns: 1fr;
+  }
+
+  .search-section .input-group label {
+    font-size: 12px;
+  }
+
+  .search-section .input-group select {
+    font-size: 12px;
+    padding: 8px 10px;
+  }
+
+  .episode-modal .modal-window {
+    padding: 10px;
+    font-size: 13px;
+  }
+
+  .episode-modal .modal-close {
+    font-size: 20px;
+  }
+}
+/* ===== Адаптивна анімація для модалки ===== */
+
+/* 💻 Десктоп — стандартна анімація popIn */
+@keyframes popIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* 📱 Мобільна версія — модалка під'їжджає знизу */
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* 📱 Для екранів до 600px — замінюємо анімацію */
+@media (max-width: 600px) {
+  .episode-modal {
+    align-items: flex-end; /* щоб модалка з'являлась знизу */
+  }
+
+  .episode-modal .modal-window {
+    width: 100%;
+    border-radius: 20px 20px 0 0;
+    padding: 20px;
+    animation: slideUp 0.35s ease; /* нова анімація */
+  }
+
+  .episode-modal .modal-season-backdrop {
+    background: rgba(0, 0, 0, 0.6);
+  }
+
+  .episode-modal .modal-close {
+    top: 8px;
+    right: 12px;
+  }
+}
